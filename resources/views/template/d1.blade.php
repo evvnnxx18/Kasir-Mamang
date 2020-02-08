@@ -33,7 +33,7 @@
 
 
 
-<body class="bg-danger">
+<body class="bg-success">
     
     @yield('content')
 
