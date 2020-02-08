@@ -1,17 +1,18 @@
-@extends('layouts.app')
+@extends('template.d1')
 
+@section('title','Register')
+    
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+               
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group row py-2">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -19,7 +20,7 @@
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ 'Please check your Name!' }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -33,7 +34,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ 'Please check your Email' }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -47,7 +48,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ 'Please check your Password' }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -66,6 +67,21 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                            </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                                @endif
+
+                                
+                                @if (Route::has('login'))
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    {{ __('Have A Account?') }}
+                                </a>
+                                @endif
                             </div>
                         </div>
                     </form>

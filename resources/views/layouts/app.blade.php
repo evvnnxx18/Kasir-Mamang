@@ -1,5 +1,4 @@
 @extends('template.d1')
-@section('title','Login')
 @section('content')
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -52,7 +51,7 @@
     </nav>
 
     <main class="py-4">
-        @yield('content')
+        @yield('contentt')
     </main>
 </div>
 @endsection
